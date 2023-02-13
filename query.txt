@@ -1,0 +1,55 @@
+#Get all user
+query getAllUsers{
+    users{
+    firstName
+      lastName
+         quote{
+            name
+      }
+    }
+    }
+
+#Get all quotes
+query getAllQuotes{
+    quotes{
+          name
+      by
+      }
+  }
+
+#Get user by id
+query getUSerById{
+	user(id: 23131){
+		firstName
+    lastName
+    quote{
+      name
+    }
+  }
+}
+#Mutation for user signup
+mutation{
+	signupUser(firstName:"Rahul", lastName:"Sarkar", email:"rahul@zovo.in", password:"rahul1999"){
+		firstName
+    lastName
+    email
+  }
+}
+
+#Mutation for user signup
+mutation createUser($newUser: newUserInput!){
+	signupUser(newUser: $newUser){
+		firstName
+    lastName
+    email
+  }
+}
+
+{
+    "newUser": {
+    "firstName":"Rahul", 
+      "lastName":"Sarkar", 
+      "email":"rahul@zovo.in", 
+      "password":"rahul1999"
+    }
+}
